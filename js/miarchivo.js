@@ -10,7 +10,7 @@ async function getDatos() {
     }
 }
 var datos = getDatos();
-datos.then((res) => {
+datos.then((res) => { 
     console.log(res)
     var list = [];
     var html = '';
