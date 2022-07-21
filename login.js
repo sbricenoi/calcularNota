@@ -1,3 +1,4 @@
+'use strict'
 //Almacenar
 function store() {
   let name = document.getElementById("name");
@@ -139,12 +140,64 @@ function store() {
   }
 }
 
-//Chequear
-function check() {
-  let storedName = localStorage.getItem("name");
-  let storedPw = localStorage.getItem("pw");
+//add event del formulario login
+var loginForm = document.getElementById("login-form");
+loginForm.addEventListener('submit', (event) => {
+  event.preventDefault() //evitamos que se envíe el formulario y refresque la pagina
+  let userPw = document.getElementById("userPw").value;
+  let userRemember = document.getElementById("userName").value;
+  getDatos(userRemember,userPw).then((res)=>{ // llamamos a la funcion de consulta datos utilizando then para esperar a que llegue la información
+    //console.log(res);
+    let existe = 0;
+    let usuariovalidar;
+    if(res.usuarios.length>0){ //validamos si existen datos
+      for(let u=0;u<res.usuarios.length;u++){
+        //console.log("validando usuario",res.usuarios[u].email,"-",userRemember)
 
-  let userName = document.getElementById("userName");
+        if(existe==0){
+          if(res.usuarios[u].email==userRemember){
+            usuariovalidar = res.usuarios[u];
+            existe = 1;
+            console.log("existe");
+          }
+        }
+      }
+      if(existe==1){ // validamos si existe el email dentro del json
+        //validamos pass
+        //console.log(usuariovalidar);
+        //console.log(usuariovalidar.password,"-",userPw)
+        if(usuariovalidar.password===userPw){ // validamos pass
+          window.location.href = 'index.html';
+        }else{
+          document.getElementById("mensaje-error").innerHTML = "error password";
+        }
+      }else{
+        document.getElementById("mensaje-error").innerHTML = "usuario no existe";
+      }
+    }
+
+  })
+  
+});
+
+async function getDatos(usr,pass) {
+  //let url = 'https://pokeapi.co/api/v2/pokemon';
+  let url = './datos.json';
+  //let body = {a: 1, b: 'Textual content'};
+  try {
+      let res = await fetch(url); // traemos la data por fetch
+      return res.json(); //parseamos a json y retornamos
+  } catch (error) {
+      console.log(error);
+  }
+}
+/*function check() {
+
+  //let storedName = localStorage.getItem("name");
+  //let storedPw = localStorage.getItem("pw");
+  
+  return false;
+  /*let userName = document.getElementById("userName");
   let userPw = document.getElementById("userPw");
   let userRemember = document.getElementById("rememberMe");
 
@@ -159,4 +212,6 @@ function check() {
       confirmButtonText: "Ok",
     });
   }
-}
+
+
+}*/

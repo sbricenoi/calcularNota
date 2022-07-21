@@ -35,7 +35,7 @@
     </div>
     
     <div class="login">
-        <form name='form-login'>
+        <form id="login-form" name='form-login'>
     
             <h1>LOGEARSE</h1>
     
@@ -51,8 +51,8 @@
                 <label>Recordar</label>
             </div>
     
-            <input id= "login_btn" type="submit" value="LOGEARSE" onclick="check()">
-    
+            <input id= "login_btn" type="submit" value="LOGEARSE" >
+            <div id="mensaje-error"></div>
         </form>
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -1,7 +1,9 @@
 'use strict'
 
-async function getDatos() {
-    let url = 'https://pokeapi.co/api/v2/pokemon';
+async function getDatos(usr,pass) {
+    //let url = 'https://pokeapi.co/api/v2/pokemon';
+    let url = './datos.json';
+    //let body = {a: 1, b: 'Textual content'};
     try {
         let res = await fetch(url);
         return res.json();
