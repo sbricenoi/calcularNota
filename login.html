@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="login.css">
+    <title>Login</title>
+</head>
+<body>
+
+    <div class="login">
+        <form name='form-login'>
+    
+            <h1>REGISTRAR</h1>
+    
+            <label for="name">Email</label>
+            <input type="email" id="name" placeholder="Username" required>
+    
+            <label for="pw">Password</label>
+            <input type="password"
+                   id= "pw"
+                   placeholder="Password" required>
+    
+            <ul class="helper-text">
+                <li class="length">Debe tener a lo menos 8 caracteres.</li>
+                <li class="lowercase">Debe tener a lo menos 1 minuscula.</li>
+                <li class="uppercase">Debe tener a lo menos 1 mayuscula.</li>
+                <li class="special">Debe tener a lo menos un numero o caracter especial.</li>
+            </ul>
+            <input id="rgstr_btn" type="submit" value="REGISTRAR" onclick="store()">
+    
+        </form>
+    </div>
+    
+    <div class="login">
+        <form name='form-login'>
+    
+            <h1>LOGEARSE</h1>
+    
+            <label for="userName">Email</label>
+            <input type="email" id="userName" placeholder="Username" required>
+    
+            <label for="userPw">Password</label>
+            <input type="password" id= "userPw" placeholder="Password" required>
+    
+            <div id="remember">
+                <input type="checkbox" value="lsRememberMe" id="rememberMe"
+                       style="display: inline-block;">
+                <label>Recordar</label>
+            </div>
+    
+            <input id= "login_btn" type="submit" value="LOGEARSE" onclick="check()">
+    
+        </form>
+    </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="login.js"></script>
+    
+</body>
+</html>
+
+
+
+
+
+
